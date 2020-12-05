@@ -1,5 +1,6 @@
 //your variable declarations here
 Star starz[] = new Star[200];
+ArrayList <Asteroid> asteroids = new ArrayList <Asteroid>();
 Spaceship ship = new Spaceship();
 private boolean left, right, forward, backwards;
 
@@ -11,6 +12,9 @@ public void setup()
   for (int i = 0; i < starz.length; i++) {
     starz[i] = new Star();
   }
+  for(int i = 0; i < 10; i++){
+    asteroids.add(new Asteroid());
+  }
 }
 public void draw() 
 {
@@ -20,6 +24,7 @@ public void draw()
   ship.move();
   shipsDirection();
   showStarz();
+  showAndMoveAsteroid();
 }
 public void showStarz() {
   for(int i = 0; i < starz.length; i++) {
@@ -38,6 +43,12 @@ public void shipsDirection() {
   }
   if(right) {
     ship.turn(5);
+  }
+}
+public void showAndMoveAsteroid() {
+  for(int i = 0; i < 10; i++){
+    asteroids.get(i).move();
+    asteroids.get(i).show();
   }
 }
 public void keyPressed() {
