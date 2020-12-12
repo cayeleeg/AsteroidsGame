@@ -13,7 +13,7 @@ public void setup()
   for (int i = 0; i < starz.length; i++) {
     starz[i] = new Star();
   }
-  for(int i = 0; i < 10; i++){
+  for(int i = 0; i < asteroids.size(); i++){
     asteroids.add(new Asteroid());
   }
 }
