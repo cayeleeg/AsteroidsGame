@@ -1,6 +1,7 @@
 //your variable declarations here
 Star starz[] = new Star[200];
 ArrayList <Asteroid> asteroids = new ArrayList <Asteroid>();
+ArrayList <Bullet> bullets = new ArrayList <Bullet>();
 Spaceship ship = new Spaceship();
 private boolean left, right, forward, backwards;
 
@@ -25,6 +26,16 @@ public void draw()
   shipsDirection();
   showStarz();
   showAndMoveAsteroid();
+  showBullets();
+  removeBulletAndAsteroi();
+  endgame();
+}
+public void showBullets() {
+  for(int i = 0; i < bullets.size(); i++) {
+    bullets.get(i).show();
+    //bullets.get(i).accelerate();
+    bullets.get(i).move();
+  }
 }
 public void showStarz() {
   for(int i = 0; i < starz.length; i++) {
@@ -70,7 +81,29 @@ public void keyPressed() {
     }
   }
 }
-
+public void removeBulletAndAsteroi() { 
+  for(int n = 0; n < asteroid.size(); n++) {
+    Asteroidd asteroida = asteroid.get(n);
+    int asteroidx = asteroida.getX();
+    int asteroidy = asteroida.getY();
+    for(int i = 0; i < bullets.size(); i++) {
+      Bullet b = bullets.get(i);
+      int bulletx = b.getX();
+      int bullety = b.getY();
+      if(dist((int)asteroidx, (int)asteroidy, (int)bulletx, (int)bullety) < 15 ) {
+        bullets.remove(i);
+        asteroid.remove(n);
+        i--;
+        n--;
+      }
+    }
+  }
+}
+public void endgame() {
+  if(asteroid.size() == 0) {
+    text("nice", 400, 400);
+  }
+}
 public void keyReleased() {
   if (key == CODED) {
     if (keyCode == UP) {
@@ -85,5 +118,8 @@ public void keyReleased() {
     if (keyCode == RIGHT) {
        right = false;
     }
+  }
+  if(key == ' '){
+      bullets.add(new Bullet(ship)); 
   }
 }
