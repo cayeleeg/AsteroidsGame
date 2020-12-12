@@ -13,7 +13,7 @@ public void setup()
   for (int i = 0; i < starz.length; i++) {
     starz[i] = new Star();
   }
-  for(int i = 0; i < asteroids.size(); i++){
+  for(int i = 0; i < 10; i++){
     asteroids.add(new Asteroid());
   }
 }
@@ -57,7 +57,7 @@ public void shipsDirection() {
   }
 }
 public void showAndMoveAsteroid() {
-  for(int i = 0; i < 10; i++){
+  for(int i = 0; i < asteroids.size() ; i++){
     asteroids.get(i).move();
     asteroids.get(i).show();
   }
