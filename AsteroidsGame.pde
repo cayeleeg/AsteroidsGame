@@ -82,8 +82,8 @@ public void keyPressed() {
   }
 }
 public void removeBulletAndAsteroi() { 
-  for(int n = 0; n < asteroid.size(); n++) {
-    Asteroidd asteroida = asteroid.get(n);
+  for(int n = 0; n < asteroids.size(); n++) {
+    Asteroidd asteroida = asteroids.get(n);
     int asteroidx = asteroida.getX();
     int asteroidy = asteroida.getY();
     for(int i = 0; i < bullets.size(); i++) {
