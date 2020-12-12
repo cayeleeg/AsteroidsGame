@@ -92,7 +92,7 @@ public void removeBulletAndAsteroi() {
       int bullety = b.getY();
       if(dist((int)asteroidx, (int)asteroidy, (int)bulletx, (int)bullety) < 15 ) {
         bullets.remove(i);
-        asteroid.remove(n);
+        asteroids.remove(n);
         i--;
         n--;
       }
@@ -100,7 +100,7 @@ public void removeBulletAndAsteroi() {
   }
 }
 public void endgame() {
-  if(asteroid.size() == 0) {
+  if(asteroids.size() == 0) {
     text("nice", 400, 400);
   }
 }
